@@ -26,7 +26,7 @@ int main() {
 		cout << "1 - Wyswietl drzewo:" << endl;
 		cout << "2 - Dodaj element do drzewa" << endl;
 		cout << "3 - Usun element z drzewa" << endl;
-		cout << "4 - Dodaj n losowych elementów do drzewa" << endl;
+		cout << "4 - Dodaj n losowych elementow do drzewa" << endl;
 		cout << "5 - Prezentacja przejscia pre-order" << endl;
 		cout << "6 - Prezentacja przejscia in-order" << endl;
 		cout << "7 - Prezentacja przejscia post-order" << endl;
@@ -36,26 +36,26 @@ int main() {
 		cin >> wybor;
 
 
-		switch (wybor) {
+		switch (wybor) {		// Wyswietlanie drzewa
 		case 1:
 			cout << " Liczba wezlow to: " << drzewo.ilosc_wezlow() << endl;
 			cout << " Wysokosc drzewa to: " << drzewo.wysokosc_drzewa() << endl;
 			drzewo.wyswietl_drzewo();
 			break;
 
-		case 2:
+		case 2:					// Dodawanie nowego elementu do drzewa
 			cout << "Podaj liczbe: ";
 			cin >> dane;
 			drzewo.dodaj_element(dane);
 			break;
 
-		case 3:
+		case 3:					// Usowanie elementu z drzewa
 			cout << "Podaj liczbe: ";
 			cin >> dane;
 			drzewo.usun_element(dane);
 			break;
 
-		case 4:
+		case 4:					// Dodawanie n losowych elementow do drzewa
 			cout << "Podaj ilosc elementow: ";
 			cin >> dane;
 
@@ -64,19 +64,19 @@ int main() {
 			}
 			break;
 
-		case 5:
+		case 5:					// Wywolanie przejscia pre_order
 			pre_order(drzewo.zwroc_korzen());
 			break;
 
-		case 6:
+		case 6:					// Wywolanie przejscia in_order
 			in_order(drzewo.zwroc_korzen());
 			break;
 
-		case 7:
+		case 7:					// Wywolanie przejscia post_order
 			post_order(drzewo.zwroc_korzen());
 			break;
 
-		case 8:
+		case 8:					// Dodawanie i usowanie n losowych elementow
 		{
 			cout << "Podaj ilosc elementow: ";
 			cin >> dane;
@@ -94,7 +94,7 @@ int main() {
 		}
 			break;
 
-		case 0:
+		case 0:					// koniec dzi³ania programu
 			return 0;
 			break;
 

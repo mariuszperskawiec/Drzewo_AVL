@@ -9,6 +9,7 @@
 #define DRZEWO_HPP_
 
 #define ODLEGLOSC 10
+#define DRZEWO_PUSTE 1
 
 #include <iostream>
 using namespace std;
@@ -41,8 +42,8 @@ public:
 private:								// Funkcje i zmienne prywatne
 	int liczba_wezlow;
 	int dodawanie_wezla(wezel *&_korzen, int wartosc);
-	void usuwanie_wezla(wezel *&_korzen, int wartosc);
-	void wyswietlanie(wezel *_korzen, int odstep);
+	int usuwanie_wezla(wezel *&_korzen, int wartosc);
+	int wyswietlanie(wezel *_korzen, int odstep);
 	int wysokosc_AVL(wezel *_korzen);
 	void rotacja_RR(wezel *&_korzen);
 	void rotacja_LL(wezel *&_korzen);

@@ -63,11 +63,11 @@ int AVL_TREE::dodawanie_wezla(wezel *&_korzen, int wartosc) { // rekurencyja fun
 
 void AVL_TREE::usun_element(int wartosc) { // funkcja  do wywo³ywania funkcji usuwajacej element z drzewa
 
-	usuwanie_wezla(korzen, wartosc);
+	if(usuwanie_wezla(korzen, wartosc)==DRZEWO_PUSTE) cout << endl << "Blad - brak elementow do usuniecia" << endl;
 
 }
 
-void AVL_TREE::usuwanie_wezla(wezel *&_korzen, int wartosc) {	// Rekurencyjna funkcja, usuwajaca element
+int AVL_TREE::usuwanie_wezla(wezel *&_korzen, int wartosc) {	// Rekurencyjna funkcja, usuwajaca element
 
 	wezel *pomocnicza, *pom;		// zmienne pomocnicze wykorzystywane przy usuwaniu elementow
 	int liczba;
@@ -75,7 +75,7 @@ void AVL_TREE::usuwanie_wezla(wezel *&_korzen, int wartosc) {	// Rekurencyjna fu
 
 	if (_korzen == NULL) {       // je¿eli drzewo jest puste zakoncz dzialanie
 
-		return ;
+		return DRZEWO_PUSTE;
 
 	}
 
@@ -97,7 +97,7 @@ void AVL_TREE::usuwanie_wezla(wezel *&_korzen, int wartosc) {	// Rekurencyjna fu
 			_korzen = NULL;
 			liczba_wezlow--;
 			cout <<"Wezel zostal usuniety" << endl;
-			return ;
+			return 0 ;
 
 		}
 
@@ -144,18 +144,19 @@ void AVL_TREE::usuwanie_wezla(wezel *&_korzen, int wartosc) {	// Rekurencyjna fu
 		_korzen->wspolczynnik_rownowagi = oblicz_bf(_korzen);		// Oliczamy bf po rotacji
 	}
 
-
+	return 0;
 }
 
 void AVL_TREE::wyswietl_drzewo() {
 
-	wyswietlanie(korzen, ODLEGLOSC);
+	if(wyswietlanie(korzen, ODLEGLOSC) == DRZEWO_PUSTE ) cout << endl << "Blad- drzewo jest puste!!!" << endl;
+
 }
 
-void AVL_TREE::wyswietlanie(wezel *_korzen, int odstep) {	// Funkcja sluzaca do wyswietlania drzewa w celu sprawdzenia poprawnosci
+int AVL_TREE::wyswietlanie(wezel *_korzen, int odstep) {	// Funkcja sluzaca do wyswietlania drzewa w celu sprawdzenia poprawnosci
 
 	if (_korzen == NULL)
-		return;
+		return DRZEWO_PUSTE;
 	odstep += ODLEGLOSC;
 
 	wyswietlanie(_korzen->right, odstep);
@@ -167,6 +168,7 @@ void AVL_TREE::wyswietlanie(wezel *_korzen, int odstep) {	// Funkcja sluzaca do 
 	cout << _korzen->dane <<  endl;
 
 	wyswietlanie(_korzen->left, odstep);
+	return 0;
 }
 
 int AVL_TREE::wysokosc_drzewa() {

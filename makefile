@@ -11,4 +11,4 @@ przejscia.o: przejscia.cpp przejscia.hpp drzewo.hpp
 	g++ -c -Wall -pedantic przejscia.cpp
 
 clean:
-	rm -f *.o test
+	rm -f *.o drzewo_AVL
