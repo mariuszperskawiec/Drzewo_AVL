@@ -12,8 +12,6 @@
 
 using namespace std;
 
-
-
 int main() {
 
 	AVL_TREE drzewo;	// inicjalizacja drzewa
@@ -21,7 +19,7 @@ int main() {
 	int wybor = 0;		// zmienne pomocnicze do obslugi menu
 	int dane = 0;
 
-	while (1) {
+	while (1) {		// Wyœwietlanie menu w pêtli
 		cout << endl;
 		cout << "1 - Wyswietl drzewo:" << endl;
 		cout << "2 - Dodaj element do drzewa" << endl;
@@ -94,7 +92,7 @@ int main() {
 		}
 			break;
 
-		case 0:					// koniec dzi³ania programu
+		case 0:					// Je¿eli 0 to zakoñcz dzia³anie programu
 			return 0;
 			break;
 
